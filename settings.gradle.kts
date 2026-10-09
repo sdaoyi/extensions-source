@@ -3,6 +3,9 @@
 pluginManagement {
     includeBuild("gradle/build-logic")
     repositories {
+        maven("https://maven.aliyun.com/repository/public")
+        maven("https://maven.aliyun.com/repository/google")
+        maven("https://maven.aliyun.com/repository/gradle-plugin")
         google()
         mavenCentral()
         gradlePluginPortal()
@@ -20,6 +23,9 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     @Suppress("UnstableApiUsage")
     repositories {
+        maven("https://maven.aliyun.com/repository/public")
+        maven("https://maven.aliyun.com/repository/google")
+        maven("https://maven.aliyun.com/repository/gradle-plugin")
         google()
         mavenCentral()
         maven(url = "https://www.jitpack.io")
@@ -33,7 +39,7 @@ rootProject.name = "Keiyoushi"
 /**
  * Add or remove modules to load as needed for local development here.
  */
-loadAllIndividualExtensions()
+loadLanguageExtensions("zh")
 // loadIndividualExtension("all", "mangadex")
 
 /**
@@ -60,6 +66,11 @@ fun loadAllIndividualExtensions() {
 }
 fun loadIndividualExtension(lang: String, name: String) {
     include("src:$lang:$name")
+}
+fun loadLanguageExtensions(lang: String) {
+    File(rootDir, "src/$lang").eachDir { subdir ->
+        include("src:$lang:${subdir.name}")
+    }
 }
 
 fun File.eachDir(block: (File) -> Unit) {
