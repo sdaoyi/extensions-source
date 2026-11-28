@@ -3,8 +3,12 @@
 pluginManagement {
     includeBuild("gradle/build-logic")
     repositories {
+        maven("https://mirrors.cloud.tencent.com/nexus/repository/maven-public")
+        maven("https://repo.huaweicloud.com/repository/maven")
         maven("https://maven.aliyun.com/repository/public")
+        maven("https://mirrors.cloud.tencent.com/nexus/repository/google-maven")
         maven("https://maven.aliyun.com/repository/google")
+        maven("https://mirrors.cloud.tencent.com/nexus/repository/gradle-plugins")
         maven("https://maven.aliyun.com/repository/gradle-plugin")
         google()
         mavenCentral()
@@ -23,8 +27,12 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     @Suppress("UnstableApiUsage")
     repositories {
+        maven("https://mirrors.cloud.tencent.com/nexus/repository/maven-public")
+        maven("https://repo.huaweicloud.com/repository/maven")
         maven("https://maven.aliyun.com/repository/public")
+        maven("https://mirrors.cloud.tencent.com/nexus/repository/google-maven")
         maven("https://maven.aliyun.com/repository/google")
+        maven("https://mirrors.cloud.tencent.com/nexus/repository/gradle-plugins")
         maven("https://maven.aliyun.com/repository/gradle-plugin")
         google()
         mavenCentral()
